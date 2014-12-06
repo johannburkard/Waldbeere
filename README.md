@@ -17,7 +17,7 @@ Waldbeere is less than 1 KB large when gzip compressed and integrates with Googl
 * No GUI.
 * No data analysis.
 
-# How to use Waldbeere
+## How to use Waldbeere
 
 1. [Get the script](waldbeere.min.js) and add it at the end of your page's &lt;head&gt;.
 2. Set up your tests.
@@ -26,6 +26,12 @@ Waldbeere is less than 1 KB large when gzip compressed and integrates with Googl
 5. Watch the data pour in.
 6. ???
 7. Feel like a marketing guru and PROFIT.
+
+## About
+
+### Why this script?
+
+[I](http://johannburkard.de) used and liked Google Website Optimizer a lot. When Google closed it, I wrote Waldbeere because I couldn't afford any of the popular split testing tools.
 
 ### Where does the name come from?
 
