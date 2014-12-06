@@ -29,7 +29,7 @@ Waldbeere is less than 1 KB when gzip compressed and integrates seamlessly with 
 
 ### 1. Setting up goals
 
-Before using Waldbeere, you need to have goals set up in Google Analytics that you want to the conversion rate of.
+Before using Waldbeere, you need to have goals set up in Google Analytics that you want to optimize the conversion rate of.
 
 ### 2. Adding Waldbeere to your pages
 
@@ -54,7 +54,6 @@ Waldbeere.config.path = '/';
 Waldbeere.tests = {
 };
 </script>
-<script>try{Waldbeere.section('ah');}catch(e){}</script></noscript>
 ```
 
 ```HTML
@@ -64,7 +63,7 @@ Waldbeere.tests = {
 
 ### 3. Setting up your tests
 
-The basis for a Waldbeere test is one or more test section. A section is a part of the page that you want to modify. You can modify
+The basis for a Waldbeere test is one or more test sections. A section is a part of the page that you want to modify. You can modify
 
 * text
 * HTML
@@ -87,6 +86,27 @@ Waldbeere.tests = {
 
 ```HTML
 <button><script>try{Waldbeere.section('buttontext');}catch(e){}</script>Click here</noscript></button>
+```
+
+When Waldbeere is run by the browser, the text on the button may be replaced by "Check it out now" or "30 % off today!" In 33 % of all visits, "Click here," the control will be shown.
+
+#### Creating a HTML section
+
+With Waldbeere, you can AB test entire parts of your page to optimize your conversion rates.
+
+```javascript
+Waldbeere.tests = {
+    'addtocart': {
+        'free shipping': '<button>Add to cart</button><br><small>Shipping is free</small>',
+        'cart image': '<button><img src="cart.png"> Add to cart</button>'
+     }
+};
+```
+
+```HTML
+<script>try{Waldbeere.section('addtocart');}catch(e){}</script>
+<button>Add to cart</button>
+</noscript>
 ```
 
 ### 4. Sending data to Google Analytics
@@ -122,6 +142,14 @@ ga('send', 'pageview');
 ```
 
 ## Q & A
+
+### How do I see all variations?
+
+Delete your Waldbeere cookie and reload your page (a better method may come some day).
+
+### What other constraints are there?
+
+Keep your section names and variations short.
 
 ## About
 
