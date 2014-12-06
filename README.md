@@ -190,7 +190,7 @@ ga('send', 'pageview');
 
 In Google Analytics, go to the Audience &raquo; Custom &raquo; Custom Variables report. Next, select the Waldbeere custom variable key in slot 1.
 
-<img src="doc/ga-custom-variables-728.png" alt="Custom Variables Report in Google Analytics">
+<img src="https://raw.githubusercontent.com/johannburkard/Waldbeere/master/doc/ga-custom-variables-728.png" alt="Custom Variables Report in Google Analytics">
 
 ## Q & A
 
@@ -200,13 +200,19 @@ Delete your Waldbeere cookie and reload your page (a better method may come some
 
 ### What other constraints are there?
 
-Keep your section names and variations short.
+Keep your section and variation names short.
 
 ### How long will my test run?
 
 1. Calculate the number of variations -- multiply the number of each section's variations (plus one if using control) together.
 2. [Go here](https://vwo.com/ab-split-test-duration/) and enter your current conversion rate, the number of variations and the average number of daily visitors.
 3. Click "Calculate Test Duration."
+
+### When does Waldbeere not work?
+
+* When you have no traffic.
+* When your conversion rate is very low (think 1 % or less)
+* When your conversion rate is very high (60 % or more)
 
 ### How do I split test two totally different designs of a page?
 
