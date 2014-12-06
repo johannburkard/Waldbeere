@@ -138,6 +138,8 @@ Waldbeere.tests = {
 };
 ```
 
+Before the end of your page's &lt;head&gt;:
+
 ```HTML
 <script>try{Waldbeere.section('font-size');}catch(e){}</script></noscript>
 <script>try{Waldbeere.section('a');}catch(e){}</script></noscript>
@@ -147,14 +149,16 @@ When the page is loaded, you may see 11 or 13 px body text and different link co
 
 ### 4. Sending data to Google Analytics
 
+After setting up Waldbeere and your tests, you need to get the chosen combination of each visit into Google Analytics. In Google Analytics, the combinations will show up in the Custom Variables or Custom Dimension reports. 
+
 If you use ga.js with the old syntax:
 
 ```javascript
 // var tracker = _gat._createTracker("UA-......-..","t")
-
 if (window.Waldbeere && window.Waldbeere.customVar) {
     tracker._setCustomVar(1, 'Waldbeere', Waldbeere.customVar, 2);
 }
+// tracker._trackPageview();
 ```
 
 If you use ga.js with the asynchronous syntax:
