@@ -19,6 +19,11 @@ Waldbeere is less than 1 KB large when gzip compressed and integrates with Googl
 * No GUI.
 * No data analysis.
 
+## How to use Waldbeere
+
+1. [Get the script)(raw/master/waldbeere.min.js) and add it at the end of your page's <head>.
+
+
 ### Where does the name come from?
 
 [This](http://www.adelholzener.de/eistee/#product-1499) (though it contains [high-fructose corn syrup](https://www.youtube.com/watch?v=dBnniua6-oM) so beware).
