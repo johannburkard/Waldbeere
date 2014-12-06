@@ -22,16 +22,21 @@ Waldbeere is less than 1 KB when gzip compressed and integrates seamlessly with 
 1. Set up goals in Google Analytics.
 2. [Get the script](waldbeere.min.js) and add it before the end of your page's &lt;head&gt;.
 3. Set up your tests.
-4. Send the Waldbeere.customVar property to Google Analytics as a custom variable (properties using ga.js) or custom dimension (properties using Universal Analytics/analytics.js).
+4. Send the Waldbeere.customVar property to Google Analytics as a custom variable or custom dimension.
 5. Watch the data pour in.
 6. ???
 7. Feel like a marketing guru and PROFIT.
 
-### 1. Setting up goals
+### 1. Setting up Goals
 
-Before using Waldbeere, you need to have goals set up in Google Analytics that you want to optimize the conversion rate of.
+Before using Waldbeere, you need to have goals set up in Google Analytics that you want to optimize the conversion rate of. How to is a bit outside the scope of this README.md, but some things you can set up as goals are
 
-### 2. Adding Waldbeere to your pages
+* "Thank you" pages shown after placing an order
+* Subscribing to an email newsletter
+* Interacting with a video
+* Donating to a website
+
+### 2. Adding Waldbeere to Your Pages
 
 Copy & paste this stub before the end of your page's &lt;head&gt;.
 
@@ -61,7 +66,7 @@ Waldbeere.tests = {
 <body>
 ```
 
-### 3. Setting up your tests
+### 3. Setting up Your Tests
 
 The basis for a Waldbeere test is a section, which is something on the page that you want to modify. You can modify
 
@@ -69,13 +74,13 @@ The basis for a Waldbeere test is a section, which is something on the page that
 * HTML
 * CSS
 
-A section may contain a control, which is a default that your tests will compare against.
+A section may have a default that your tests will compare against. This is called a control.
 
 If you only use one section, you are running an AB(CD...) test, if you use multiple sections, you are running a multivariate test.
 
-#### Creating a text section
+#### Creating a Text Section
 
-Use this if you want to test different texts, for example:
+Use this if you want to test different texts, for example on a button.
 
 ```javascript
 Waldbeere.tests = {
@@ -86,13 +91,13 @@ Waldbeere.tests = {
 };
 ```
 
-Before:
+The original text on the button was:
 
 ```HTML
 <button>Click here</button>
 ```
 
-After:
+With the Waldbeere split test:
 
 ```HTML
 <button><script>try{Waldbeere.section('buttontext');}catch(e){}</script>Click here</noscript></button>
@@ -100,7 +105,7 @@ After:
 
 When Waldbeere is run by the browser, the text on the button may be replaced by "Check it out now" or "30 % off today!" In 33 % of all visits, "Click here" (the control) will be shown.
 
-#### Creating a HTML section
+#### Creating an HTML section
 
 With Waldbeere, you can AB test entire parts of your page to optimize your conversion rates.
 
@@ -119,7 +124,7 @@ Waldbeere.tests = {
 </noscript>
 ```
 
-#### Creating a CSS section
+#### Creating a CSS Section
 
 Manipulating CSS is very effective because it allows to you make large, site-wide changes and see how your conversion rates change in response. Don't be afraid to test seemingly irrelevant things like background colours, link colours, font sizes or spacing between elements.
 
@@ -147,9 +152,9 @@ Before the end of your page's &lt;head&gt;:
 
 When the page is loaded, you may see 11 or 13 px body text and different link colours.
 
-### 4. Sending data to Google Analytics
+### 4. Sending Data to Google Analytics
 
-After setting up Waldbeere and your tests, you need to get the chosen combination of each visit into Google Analytics. In Google Analytics, the combinations will show up in the Custom Variables or Custom Dimension reports. 
+After setting up Waldbeere and your creatings tests, you need to get the variation that's chosen by Waldbeere into Google Analytics. There, the combinations will show up in the Custom Variables or Custom Dimension reports. 
 
 If you use ga.js with the old syntax:
 
@@ -181,6 +186,12 @@ if (window.Waldbeere && window.Waldbeere.customVar) {
 ga('send', 'pageview');
 ```
 
+### 5. Reporting in Google Analytics
+
+In Google Analytics, go to the Audience &raquo; Custom &raquo; Custom Variables report. Next, select the Waldbeere custom variable key in slot 1.
+
+<img src="ga-custom-variables-728.png" alt="Custom Variables Report in Google Analytics">
+
 ## Q & A
 
 ### How do I see all variations?
@@ -196,6 +207,30 @@ Keep your section names and variations short.
 1. Calculate the number of variations -- multiply the number of each section's variations (plus one if using control) together.
 2. [Go here](https://vwo.com/ab-split-test-duration/) and enter your current conversion rate, the number of variations and the average number of daily visitors.
 3. Click "Calculate Test Duration."
+
+### I want to split test two totally different designs of a page, how do I do this?
+
+Put both designs on the same page, wrapped in &lt;div&gt;s. Then, simply toogle the CSS display property of both designs.
+
+```javascript
+Waldbeere.tests = {
+    'designs': {
+        '2': '<style>#design1 { display: none } #design2 { display: block !important }<\/style>'
+   }
+};
+```
+
+```HTML
+<div id="design1">
+ <h1>Welcome</h1>
+ <p>Bla</p>
+</div>
+
+<div id="design2" style="display: none">
+ <h1>Hey there</h1>
+ <p><img src="foo.jpg"></p>
+</div>
+```
 
 ## About
 
