@@ -2,7 +2,7 @@
 
 Waldbeere is a tiny JavaScript to run AB and Multivariate split tests.
 
-Waldbeere is less than 1 KB large when gzip compressed and integrates with Google Analytics. Contrary to other AB and Multivariate test tools, Waldeere does not slow down your page -- there are no extra DNS or HTTP requests when using Waldbeere.
+Waldbeere is less than 1 KB when gzip compressed and integrates seamlessly with Google Analytics. Contrary to other AB and Multivariate test tools, Waldeere does not slow down your website -- there are no extra DNS or HTTP requests when using Waldbeere.
 
 ## Advantages
 
@@ -38,7 +38,9 @@ Copy & paste this stub before the end of your page's &lt;head&gt;.
 ```HTML
 <head>
 <title>...</title>
-...
+```
+
+```HTML
 <script>
 (function(r,l){try{var t=function(a,w){return s(a)+":"+s(w)},s=function(a){n.lastIndex=0;return n.test(a)?'"'+a.replace(n,function(a){var b=x[a];return"string"===typeof b?b:"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)})+'"':'"'+a+'"'},u=function(a,c,b){var e,d;if("undefined"!=typeof c){b=b||{};null===c&&(c="");e=b.path;if(b=b.expires)d=new Date,d.setTime(d.getTime()+864E5*b),d="; expires="+d.toUTCString();document.cookie=[a,"=",encodeURIComponent(c),e?"; path="+e:"",d||""].join("")}else if(e=
 document.cookie)if(b=e.indexOf(a+"="),-1<b)return d=e.indexOf(";",b),decodeURIComponent(e.substring(b+a.length+1,0>d?e.length:d))},n=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,x={"\b":"\\b","\t":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"},g=r[l]=r[l]||{},c,h={},m=[],a,f,k,p,q,v=function(){c=g.tests;if(a=u(l))for(a in q=eval("({"+a+"})"),q)f=q[a],!c[a]||!c[a][f]&&f||(h[a]=c[a][f]||"",m.push(t(a,f)));for(a in c)if(!h[a]&&
@@ -53,14 +55,43 @@ Waldbeere.tests = {
 };
 </script>
 <script>try{Waldbeere.section('ah');}catch(e){}</script></noscript>
+```
 
+```HTML
 </head>
 <body>
 ```
 
+### 3. Setting up your tests
+
+The basis for a Waldbeere test is one or more test section. A section is a part of the page that you want to modify. You can modify
+
+* text
+* HTML
+* CSS
+
+A section may contain a control, which is a default that your tests will compare against.
+
+#### Creating a text section
+
+Use this if you want to test different labels on a button, for example:
+
+```javascript
+Waldbeere.tests = {
+    'buttontext': {
+        'funksoul': 'Check it out now',
+        '30 % off': '30 % off today!'
+     }
+};
+```
+
+```HTML
+<button><script>try{Waldbeere.section('buttontext');}catch(e){}</script>Click here</noscript></button>
+```
+
 ### 4. Sending data to Google Analytics
 
-If you use ga.js with the old synchronous syntax:
+If you use ga.js with the old syntax:
 
 ```javascript
 // var tracker = _gat._createTracker("UA-......-..","t")
@@ -89,6 +120,8 @@ if (window.Waldbeere && window.Waldbeere.customVar) {
 }
 ga('send', 'pageview');
 ```
+
+## Q & A
 
 ## About
 
