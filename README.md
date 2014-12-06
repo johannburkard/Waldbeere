@@ -190,7 +190,7 @@ ga('send', 'pageview');
 
 In Google Analytics, go to the Audience &raquo; Custom &raquo; Custom Variables report. Next, select the Waldbeere custom variable key in slot 1.
 
-<img src="ga-custom-variables-728.png" alt="Custom Variables Report in Google Analytics">
+<img src="doc/ga-custom-variables-728.png" alt="Custom Variables Report in Google Analytics">
 
 ## Q & A
 
