@@ -27,6 +27,37 @@ Waldbeere is less than 1 KB large when gzip compressed and integrates with Googl
 6. ???
 7. Feel like a marketing guru and PROFIT.
 
+
+### 4. Sending data to Google Analytics
+
+If you use ga.js with the old synchronous syntax:
+
+```javascript
+// var tracker = _gat._createTracker("UA-......-..","t")
+
+window.Waldbeere && window.Waldbeere.customVar && tracker._setCustomVar(1, 'Waldbeere', Waldbeere.customVar, 2);
+```
+
+If you use ga.js with the asynchronous syntax:
+
+```javascript
+_gaq.push(
+            ['_setAccount', 'UA-......-..'],
+            ['_setCustomVar', 1, window.Waldbeere && window.Waldbeere.customVar ? 'Waldbeere' : null, window.Waldbeere && window.Waldbeere.customVar ? window.Waldbeere.customVar : null, 2 ],
+            ['_trackPageview']
+);
+```
+
+If you use analytics.js:
+
+```javascript
+ga('create', 'UA-......-..');
+if (window.Waldbeere && window.Waldbeere.customVar) {
+    ga('set', 'dimension1', Waldbeere.customVar);
+}
+ga('send', 'pageview');
+```
+
 ## About
 
 ### Why this script?
