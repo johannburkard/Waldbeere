@@ -21,7 +21,7 @@ Waldbeere is less than 1 KB large when gzip compressed and integrates with Googl
 
 ## How to use Waldbeere
 
-1. [Get the script)(raw/master/waldbeere.min.js) and add it at the end of your page's <head>.
+1. [Get the script](raw/master/waldbeere.min.js) and add it at the end of your page's &lt;head&gt;.
 
 
 ### Where does the name come from?
