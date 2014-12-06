@@ -1,6 +1,6 @@
 # Waldbeere
 
-Waldbeere is a tiny JavaScript to run AB and Multivariate split tests.
+Waldbeere is a tiny JavaScript to run AB and Multivariate Split Tests.
 
 Waldbeere is less than 1 KB when gzip compressed and integrates seamlessly with Google Analytics. Contrary to other AB and Multivariate test tools, Waldeere does not slow down your website -- there are no extra DNS or HTTP requests when using Waldbeere.
 
@@ -63,7 +63,7 @@ Waldbeere.tests = {
 
 ### 3. Setting up your tests
 
-The basis for a Waldbeere test is a section, which is a part of the page that you want to modify. You can modify
+The basis for a Waldbeere test is a section, which is something on the page that you want to modify. You can modify
 
 * text
 * HTML
@@ -71,11 +71,11 @@ The basis for a Waldbeere test is a section, which is a part of the page that yo
 
 A section may contain a control, which is a default that your tests will compare against.
 
-If you only use one section, you are running an AB(CD...) test, if you have multiple sections, you are running a multivariate test.
+If you only use one section, you are running an AB(CD...) test, if you use multiple sections, you are running a multivariate test.
 
 #### Creating a text section
 
-Use this if you want to test different labels on a button, for example:
+Use this if you want to test different texts, for example:
 
 ```javascript
 Waldbeere.tests = {
@@ -98,7 +98,7 @@ After:
 <button><script>try{Waldbeere.section('buttontext');}catch(e){}</script>Click here</noscript></button>
 ```
 
-When Waldbeere is run by the browser, the text on the button may be replaced by "Check it out now" or "30 % off today!" In 33 % of all visits, "Click here," the control will be shown.
+When Waldbeere is run by the browser, the text on the button may be replaced by "Check it out now" or "30 % off today!" In 33 % of all visits, "Click here" (the control) will be shown.
 
 #### Creating a HTML section
 
@@ -123,7 +123,7 @@ Waldbeere.tests = {
 
 Manipulating CSS is very effective because it allows to you make large, site-wide changes and see how your conversion rates change in response. Don't be afraid to test seemingly irrelevant things like background colours, link colours, font sizes or spacing between elements.
 
-In this example, we're creating a multivariate test with ... variations.
+In this example, we're creating a multivariate test with 9 variations.
 
 ```javascript
 Waldbeere.tests = {
