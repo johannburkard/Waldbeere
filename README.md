@@ -63,13 +63,15 @@ Waldbeere.tests = {
 
 ### 3. Setting up your tests
 
-The basis for a Waldbeere test is one or more test sections. A section is a part of the page that you want to modify. You can modify
+The basis for a Waldbeere test is a section, which is a part of the page that you want to modify. You can modify
 
 * text
 * HTML
 * CSS
 
 A section may contain a control, which is a default that your tests will compare against.
+
+If you only use one section, you are running an AB(CD...) test, if you have multiple sections, you are running a multivariate test.
 
 #### Creating a text section
 
@@ -80,9 +82,17 @@ Waldbeere.tests = {
     'buttontext': {
         'funksoul': 'Check it out now',
         '30 % off': '30 % off today!'
-     }
+    }
 };
 ```
+
+Before:
+
+```HTML
+<button>Click here</button>
+```
+
+After:
 
 ```HTML
 <button><script>try{Waldbeere.section('buttontext');}catch(e){}</script>Click here</noscript></button>
@@ -97,9 +107,9 @@ With Waldbeere, you can AB test entire parts of your page to optimize your conve
 ```javascript
 Waldbeere.tests = {
     'addtocart': {
-        'free shipping': '<button>Add to cart</button><br><small>Shipping is free</small>',
-        'cart image': '<button><img src="cart.png"> Add to cart</button>'
-     }
+        'free shipping': '<button>Add to cart<\/button><br><small>Shipping is free<\/small>',
+        'cart image': '<button><img src="cart.png"> Add to cart<\/button>'
+    }
 };
 ```
 
@@ -108,6 +118,32 @@ Waldbeere.tests = {
 <button>Add to cart</button>
 </noscript>
 ```
+
+#### Creating a CSS section
+
+Manipulating CSS is very effective because it allows to you make large, site-wide changes and see how your conversion rates change in response. Don't be afraid to test seemingly irrelevant things like background colours, link colours, font sizes or spacing between elements.
+
+In this example, we're creating a multivariate test with ... variations.
+
+```javascript
+Waldbeere.tests = {
+    'font-size': {
+        '13': '<style>html,body { font-size: 13px }<\/style>',
+        '11': '<style>html,body { font-size: 11px }<\/style>'
+    },
+    'a': {
+       '00f': '<style>a { color: #00f }<\/style>',
+       '08c': '<style>a { color: #08c }<\/style>'
+   }
+};
+```
+
+```HTML
+<script>try{Waldbeere.section('font-size');}catch(e){}</script></noscript>
+<script>try{Waldbeere.section('a');}catch(e){}</script></noscript>
+```
+
+When the page is loaded, you may see 11 or 13 px body text and different link colours.
 
 ### 4. Sending data to Google Analytics
 
@@ -150,6 +186,12 @@ Delete your Waldbeere cookie and reload your page (a better method may come some
 ### What other constraints are there?
 
 Keep your section names and variations short.
+
+### How long will my test run?
+
+1. Calculate the number of variations -- multiply the number of each section's variations (plus one if using control) together.
+2. [Go here](https://vwo.com/ab-split-test-duration/) and enter your current conversion rate, the number of variations and the average number of daily visitors.
+3. Click "Calculate Test Duration."
 
 ## About
 
