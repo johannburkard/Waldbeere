@@ -208,9 +208,9 @@ Keep your section names and variations short.
 2. [Go here](https://vwo.com/ab-split-test-duration/) and enter your current conversion rate, the number of variations and the average number of daily visitors.
 3. Click "Calculate Test Duration."
 
-### I want to split test two totally different designs of a page, how do I do this?
+### How do I split test two totally different designs of a page?
 
-Put both designs on the same page, wrapped in &lt;div&gt;s. Then, simply toogle the CSS display property of both designs.
+Put both designs on the same page, wrapped in &lt;div&gt;s. Then, toggle the CSS display of both designs.
 
 ```javascript
 Waldbeere.tests = {
@@ -218,6 +218,8 @@ Waldbeere.tests = {
         '2': '<style>#design1 { display: none } #design2 { display: block !important }<\/style>'
    }
 };
+</script>
+<script>try{Waldbeere.section('designs');}catch(e){}</script></noscript>
 ```
 
 ```HTML
@@ -230,6 +232,22 @@ Waldbeere.tests = {
  <h1>Hey there</h1>
  <p><img src="foo.jpg"></p>
 </div>
+```
+
+### How can I disable the control?
+
+Use noDefault = 1 in the Waldbeere config.
+
+```javascript
+<script>
+Waldbeere = window.Waldbeere || {};
+Waldbeere.config = Waldbeere.config || {};
+Waldbeere.config.expires = 30;
+Waldbeere.config.path = '/';
+Waldbeere.config.noDefault = 1;
+Waldbeere.tests = {
+};
+</script>
 ```
 
 ## About
