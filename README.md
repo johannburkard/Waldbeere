@@ -1,19 +1,24 @@
 # Waldbeere
 
-JavaScript AB or Multivariate Test Runner
-
 ## Introduction
 
 Waldbeere is a tiny JavaScript to run AB and Multivariate split tests.
-Waldbeere is less than 1 <abbr title="Kilobytes">KB</abbr> large when gzip compressed and integrates with Google Analytics. Contrary to other AB and Multivariate test tools, Waldeere does not slow down your page -- there are no extra <abbr title="Domain Name System">DNS</abbr> or <abbr title="HyperText Transfer Protocol">HTTP</abbr> requests.
+
+Waldbeere is less than 1 KB large when gzip compressed and integrates with Google Analytics. Contrary to other AB and Multivariate test tools, Waldeere does not slow down your page -- there are no extra DNS or HTTP requests when using Waldbeere.
 
 ### Advantages
 
 * Supports both AB and Multivariate tests.
-* Does not slow down websites.
+* Unlimited number of users.
+* Does not slow down your website.
+* Can run tests with or without control.
 * Free.
 
 ### Disadvantages
 
-* No visual editor so you need to write the <abbr title="HyperText Markup Language">HTML</abbr> yourself.
-* No data analysis -- you need to do statistical analysis yourself.
+* No GUI.
+* No data analysis.
+
+### Where does the name come from?
+
+[This](http://www.adelholzener.de/eistee/#product-1499) (though it contains [high-fructose corn syrup](https://www.youtube.com/watch?v=dBnniua6-oM) so beware).
