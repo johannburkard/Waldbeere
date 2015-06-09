@@ -261,6 +261,7 @@ Waldbeere.tests = {
 ### Why this script?
 
 [I](http://johannburkard.de) used and liked Google Website Optimizer a lot. When Google closed it, I wrote Waldbeere because I couldn't afford any of the popular split testing tools.
+I now run [eaio](http://eaio.com) which is based on ideas that this script was used extensively for.
 
 ### Where does the name come from?
 
