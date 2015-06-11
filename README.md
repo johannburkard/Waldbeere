@@ -20,14 +20,15 @@ Waldbeere is less than 1 KB when gzip compressed and integrates seamlessly with 
 ## How to use Waldbeere
 
 1. Set up goals in Google Analytics.
-2. [Get the script](waldbeere.min.js) and add it before the end of your page's &lt;head&gt;.
-3. Set up your tests.
-4. Send the Waldbeere.customVar property to Google Analytics as a custom variable or custom dimension.
-5. Watch the data pour in.
-6. ???
-7. Feel like a marketing guru and PROFIT.
+2. Set up a custom dimension in Google Analytics.
+3. [Get the script](waldbeere.min.js) and add it before the end of your page's &lt;head&gt;.
+4. Set up your tests.
+5. Send the Waldbeere.customVar property to Google Analytics as a custom dimension.
+6. Watch the data pour in.
+7. ???
+8. Feel like a marketing guru and PROFIT.
 
-### 1. Setting up Goals
+### 1. Setting up goals
 
 Before using Waldbeere, you need to have goals set up in Google Analytics that you want to optimize the conversion rate of. How to is a bit outside the scope of this README.md, but some things you can set up as goals are
 
@@ -36,7 +37,15 @@ Before using Waldbeere, you need to have goals set up in Google Analytics that y
 * Interacting with a video
 * Donating to a website
 
-### 2. Adding Waldbeere to Your Pages
+### 2. Setting up a custom dimension
+
+Go to your profile, click "Admin" and then "Custom Definitions" on the property level. Select "Custom Dimensions" and set up a custom dimension as follows:
+
+<img src="https://raw.githubusercontent.com/johannburkard/Waldbeere/master/doc/ga-custom-dimension.png" alt="Waldbeere Custom Dimension Setup in Google Analytics">
+
+Note the index of the custom dimension as you'll need it later for the integration with analytics.js.
+
+### 3. Adding Waldbeere to your pages
 
 Copy & paste this stub before the end of your page's &lt;head&gt;.
 
@@ -66,9 +75,9 @@ Waldbeere.tests = {
 <body>
 ```
 
-### 3. Setting up Your Tests
+### 4. Setting up your tests
 
-The basis for a Waldbeere test is a section, which is something on the page that you want to modify. You can modify
+Waldbeere tests run in a section, which is the part of the page that you want to modify. You can modify
 
 * text
 * HTML
@@ -91,7 +100,7 @@ Waldbeere.tests = {
 };
 ```
 
-The original text on the button was:
+The original button:
 
 ```HTML
 <button>Click here</button>
@@ -186,11 +195,13 @@ if (window.Waldbeere && window.Waldbeere.customVar) {
 ga('send', 'pageview');
 ```
 
+Don't forget to use the dimension index from the custom dimensions setup above.
+
 ### 5. Reporting in Google Analytics
 
-In Google Analytics, go to the Audience &raquo; Custom &raquo; Custom Variables report. Next, select the Waldbeere custom variable key in slot 1.
+In Google Analytics, create a custom report using the Waldbeere custom dimension.
 
-<img src="https://raw.githubusercontent.com/johannburkard/Waldbeere/master/doc/ga-custom-variables-728.png" alt="Custom Variables Report in Google Analytics">
+<img src="https://raw.githubusercontent.com/johannburkard/Waldbeere/master/doc/ga-waldbeere.png" alt="Waldbeere Custom Dimension Report in Google Analytics">
 
 ## Q & A
 
