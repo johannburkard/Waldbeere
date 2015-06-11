@@ -161,7 +161,7 @@ Before the end of your page's &lt;head&gt;:
 
 When the page is loaded, you may see 11 or 13 px body text and different link colours.
 
-### 4. Sending Data to Google Analytics
+### 5. Sending Data to Google Analytics
 
 After setting up Waldbeere and your creatings tests, you need to get the variation that's chosen by Waldbeere into Google Analytics. There, the combinations will show up in the Custom Variables or Custom Dimension reports. 
 
@@ -197,7 +197,7 @@ ga('send', 'pageview');
 
 Don't forget to use the dimension index from the custom dimensions setup above.
 
-### 5. Reporting in Google Analytics
+### 6. Reporting in Google Analytics
 
 In Google Analytics, create a custom report using the Waldbeere custom dimension.
 
