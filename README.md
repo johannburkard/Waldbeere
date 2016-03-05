@@ -277,3 +277,5 @@ I now run [EAIO](http://eaio.com) which is based on ideas that this script was u
 ### Where does the name come from?
 
 [This](http://www.adelholzener.de/eistee/#product-1499) (though it contains [high-fructose corn syrup](https://www.youtube.com/watch?v=dBnniua6-oM) so beware).
+
+[![Analytics](https://ga-beacon.appspot.com/UA-7427410-89/Waldbeere/README.md?pixel)](https://github.com/igrigorik/ga-beacon)
